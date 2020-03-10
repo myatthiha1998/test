@@ -1,0 +1,80 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+   
+    <record model="ir.ui.view" id="electricity.tree">
+      <field name="name">Electricity List</field>
+      <field name="model">electricity.electricity</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="member"/>
+          <field name="daily_cost"/>
+          <field name="monthly_cost"/>
+          <field name="yearly_cost"/>
+        </tree>
+      </field>
+    </record>
+
+
+
+
+      <record model="ir.ui.view" id="electricity.form">
+      <field name="name">Electricity List</field>
+      <field name="model">electricity.electricity</field>
+      <field name="arch" type="xml">
+      <form>
+        <group>
+          <field name="member"/>
+          <field name="daily_cost"/>
+          <field name="monthly_cost"/>
+          <field name="yearly_cost"/>
+        </group>
+        </form>
+      </field>
+    </record>
+
+
+
+    
+
+    <!-- actions opening views on models -->
+  
+    <record model="ir.actions.act_window" id="electricity.action_window">
+      <field name="name">Electricity</field>
+      <field name="res_model">electricity.electricity</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+   
+
+    <!-- server action to the one above -->
+    <!--
+    <record model="ir.actions.server" id="testing.action_server">
+      <field name="name">testing server</field>
+      <field name="model_id" ref="model_testing_testing"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": self._name,
+        }
+      </field>
+    </record>
+    -->
+
+    <!-- Top menu item -->
+    
+    <menuitem name="Electricity" id="electricity.menu_root"/>
+   
+    <!-- menu categories -->
+    
+    <menuitem name="Electricity" id="electricity.menu_1" parent="electricity.menu_root" action="electricity.action_window"/>
+  
+   
+    <!-- actions -->
+    
+    
+    
+   
+  </data>
+</odoo>
